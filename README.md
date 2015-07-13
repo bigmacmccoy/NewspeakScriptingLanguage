@@ -66,3 +66,18 @@ Newspeak is a scripting language defined by the following terms.
 ## Newspeak Compiler
 
 The Newspeak Compiler is written in JavaScript.
+
+## July 13th Status Update
+
+* See Above
+
+* Language is based on JavaScript, the compiler may be written in JavaScript or C++
+
+* We have created the README and started cloning the repo. It's Monday.
+
+* By next week we want: 
+1. The README to be completed with the full language fleshed out.
+2. The parser should be completed as well. 
+3. Everyone who hasn't read 1984 has 3 days to do so.
+
+* Momentum. But really, we just need to start coding. Also, we need to figure out exactly who does what.
