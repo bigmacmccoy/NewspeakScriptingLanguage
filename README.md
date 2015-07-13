@@ -76,8 +76,8 @@ The Newspeak Compiler is written in JavaScript.
 * We have created the README and started cloning the repo. It's Monday.
 
 * By next week we want: 
-1. The README to be completed with the full language fleshed out.
-2. The parser should be completed as well. 
-3. Everyone who hasn't read 1984 has 3 days to do so.
+    1. The README to be completed with the full language fleshed out.
+    2. The parser should be completed as well. 
+    3. Everyone who hasn't read 1984 has 3 days to do so.
 
 * Momentum. But really, we just need to start coding. Also, we need to figure out exactly who does what.
