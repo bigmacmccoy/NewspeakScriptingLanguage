@@ -65,9 +65,13 @@ Newspeak is a scripting language defined by the following terms.
 ## Example Program
 
 <dayorder HelloWorldFunc(){>
+
 <	oldspeak greeting equal "Hello, World!">
+
 <	report(greeting)>
+
 <	report()>
+
 <}>
 
 ## Newspeak Compiler
