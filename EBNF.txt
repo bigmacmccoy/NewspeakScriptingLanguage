@@ -1,0 +1,11 @@
+// Grammar.txt
+
+Program -> Sequence
+
+Sequence -> Command Sequence
+Sequence -> Loop Sequence
+
+Command Sequence -> ( Command | Variable ) *
+
+Command -> null | (“un” | “verify” | “equal” | “goodthink” | “bb” | “dayorder” | “upsub” | “report”)
+Variable -> null | var
