@@ -80,11 +80,9 @@ Newspeak is a scripting language defined by the following terms.
 
 ## Example Program
 
-	```
 	oldspeak string_variable greeting equals "Hello"
 	greeting equals greeting + " World!"
 	telescreen(greeting)
-	```
 
 ## Newspeak Compiler
 
