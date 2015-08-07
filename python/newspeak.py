@@ -5,7 +5,7 @@ if sys.version_info[0] >= 3:
     raw_input = input
 
 tokens = (
-    'NAME','NUMBER','STRING','oldspeak','integer_variable','string_variable','un','report','if','then'
+    'NAME','NUMBER','STRING','oldspeak','integer_variable','string_variable','un','report','if','then','equal'
     )
 
 literals = ['=','+','-','*','/', '(',')','>','<']
@@ -14,8 +14,12 @@ literals = ['=','+','-','*','/', '(',')','>','<']
 
 t_NAME    = r'[a-zA-Z_][a-zA-Z0-9_]*'
 
+def t_equal(t):
+    r'equals+'
+    return t
+
 def t_if(t):
-    r'if+'
+    r'think+'
     return t
 
 def t_then(t):
@@ -59,11 +63,11 @@ def t_newline(t):
     r'\n+'
     t.lexer.lineno += t.value.count("\n")
 
-    
+
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
-    
+
 # Build the lexer
 import ply.lex as lex
 lex.lex()
@@ -83,7 +87,11 @@ def p_statement_assign(p):
     '''statement : oldspeak integer_variable NAME "=" expression
                  | oldspeak string_variable NAME "=" STRING
                  | NAME "=" expression
-                 | NAME "=" STRING'''
+                 | NAME "=" STRING
+                 | NAME equal STRING
+                 | NAME equal expression
+                 | oldspeak integer_variable NAME equal STRING
+                 | oldspeak string_variable NAME equal expression'''
     if p[1] == 'oldspeak' : names[p[3]] = p[5]
     else : names[p[1]] = p[3]
 
@@ -112,7 +120,7 @@ def p_expression_binp(p):
 def p_expression_uminus(p):
     '''expression : '-' expression %prec UMINUS
                 | un expression %prec UMINUS'''
-    try: 
+    try:
         int(p[2])
         p[0] = -p[2]
     except ValueError:
@@ -130,8 +138,9 @@ def p_expression_if(p):
     "expression : if expression then statement"
     if(p[2] == True):
         p[0] = p[3]
+        print 'True'
     else:
-        print 'Fail'
+        print 'False'
 
 def p_expression_name(p):
     "expression : NAME"
