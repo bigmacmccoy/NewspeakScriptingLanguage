@@ -1,11 +1,11 @@
-import sys
+import sys, os
 sys.path.insert(0,"../..")
 
 if sys.version_info[0] >= 3:
     raw_input = input
 
 tokens = (
-    'NAME','NUMBER','STRING','oldspeak','integer_variable','string_variable','un','report','if','then','equal'
+    'NAME','NUMBER','STRING','oldspeak','integer_variable','string_variable','un','report','if','then','equal','clear'
     )
 
 literals = ['=','+','-','*','/', '(',')','>','<']
@@ -18,6 +18,10 @@ def t_equal(t):
     r'equals+'
     return t
 
+def t_clear(t):
+    r'unseen+'
+    return t
+
 def t_if(t):
     r'think+'
     return t
@@ -27,7 +31,7 @@ def t_then(t):
     return t
 
 def t_report(t):
-    r'report+'
+    r'telescreen+'
     return t
 
 def t_oldspeak(t):
@@ -149,6 +153,10 @@ def p_expression_name(p):
     except LookupError:
         print("Undefined name '%s'" % p[1])
         p[0] = 0
+
+def p_clear(p):
+    "statement : clear"
+    os.system('cls')
 
 def p_error(p):
     if p:
