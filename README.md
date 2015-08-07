@@ -2,7 +2,7 @@
 
 ## As seen in George Orwell's 1984
 
-Newspeak and the Newspeak comiler was written by Braedon McCoy. Newspeak has much of the same syntax as Javascript, but many of the keywords have been changed to be more *goodthinkful*.
+Newspeak has much of the same syntax as Javascript, but many of the keywords have been changed to be more *goodthinkful*.
 
 ## Newspeak Syntax
 
